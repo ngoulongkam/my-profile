@@ -1,44 +1,140 @@
 package com.myprofile
 
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Button
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
-import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
-import my_profile.composeapp.generated.resources.Res
-import my_profile.composeapp.generated.resources.compose_multiplatform
 
 @Composable
 @Preview
 fun App() {
     MaterialTheme {
-        var showContent by remember { mutableStateOf(false) }
         Column(
             Modifier
                 .fillMaxWidth()
-                .padding(32.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
+                .padding(vertical = 32.dp)
+                .verticalScroll(rememberScrollState())
         ) {
-            Button(onClick = { showContent = !showContent }) {
-                Text("Click me!")
+            Card {
+                Column {
+                    Text(
+                        "Ngou Long Kam",
+                        modifier = Modifier.fillMaxWidth().padding(16.dp)
+                    )
+
+                    Text(
+                        "Android Developer / Technical Test Engineer (Automation) at Capgemini",
+                        modifier = Modifier.fillMaxWidth().padding(16.dp)
+                    )
+                }
             }
-            AnimatedVisibility(showContent) {
-                val greeting = remember { Greeting().greet() }
-                Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
-                    Image(painterResource(Res.drawable.compose_multiplatform), null)
-                    Text("Compose: $greeting")
+
+            FourDpSpacer()
+
+            Card {
+                Column {
+                    Text(
+                        "About",
+                        modifier = Modifier.fillMaxWidth().padding(16.dp)
+                    )
+
+                    Text(
+                        "Experienced Android developer/Test Engineer with a demonstrated history of working in mobile application development, with experiences in government/financial applications. \n" +
+                                "\n" +
+                                "Skill highlight:\n" +
+                                "- Android native application development with Kotlin, Android Jetpack, Navigation component, MVVM, Coroutine, Hilt, Retrofit and many more. \n" +
+                                "- Strong understanding of automation tests, such as UI tests with Espresso, Kakao, Karumi-Shot for screenshot tests, JUnit, and Mockito for unit tests.\n" +
+                                "- DevOps knowledge with Bitrise and Jenkins.\n" +
+                                "- Kotlin Multiplatform knowledge (KMP), being able to deliver KMP library for different consumers such as iOS/Android/Web service.\n" +
+                                "- Knowledge of analytic integration such as Google Analytics, Firebase and Splunk.\n" +
+                                "- Bash scripting, Fastlane, Gradle knowledge for task automation.\n" +
+                                "- Selenium, ScalaTest, and Cucumber knowledge for web/API automation test.\n" +
+                                "- Performance testing utilising the Gatling load tool. \n" +
+                                "- Security testing utilising MobSF for mobile and OWASP ZAP for web applications.",
+                        modifier = Modifier.fillMaxWidth().padding(16.dp)
+                    )
+                }
+            }
+
+            FourDpSpacer()
+
+            Card {
+                Column{
+                    Text(
+                        "Experience",
+                        modifier = Modifier.fillMaxWidth().padding(16.dp)
+                    )
+
+                    Text(
+                        "Cagemini - Android Developer - 8 years 9 months",
+                        modifier = Modifier.fillMaxWidth().padding(16.dp)
+                    )
+                }
+            }
+
+            FourDpSpacer()
+
+            Card {
+                Column {
+                    Text(
+                        "Education",
+                        modifier = Modifier.fillMaxWidth().padding(16.dp)
+                    )
+
+                    Text(
+                        "Kingston University - Computer Science - 2011-2014",
+                        modifier = Modifier.fillMaxWidth().padding(16.dp)
+                    )
+                }
+            }
+
+
+            FourDpSpacer()
+
+            Card {
+                Column {
+                    Text(
+                        "Licenses & certifications",
+                        modifier = Modifier.fillMaxWidth().padding(16.dp)
+                    )
+
+                    Text(
+                        "ASTQB Certified Mobile Tester - BCS, The Chartered Institute for IT",
+                        modifier = Modifier.fillMaxWidth().padding(16.dp)
+                    )
+                }
+            }
+
+            FourDpSpacer()
+
+            Card {
+                Column {
+                    Text(
+                        "Skills",
+                        modifier = Modifier.fillMaxWidth().padding(16.dp)
+                    )
+
+                    Text(
+                        "Compose Multiplatform (CMP)",
+                        modifier = Modifier.fillMaxWidth().padding(16.dp)
+                    )
                 }
             }
         }
     }
+}
+
+@Composable
+private fun FourDpSpacer() {
+    Spacer(modifier = Modifier.padding(4.dp))
 }
