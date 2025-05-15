@@ -14,7 +14,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
-
 @Composable
 @Preview
 fun App() {
@@ -69,7 +68,7 @@ fun App() {
             FourDpSpacer()
 
             Card {
-                Column{
+                Column {
                     Text(
                         "Experience",
                         modifier = Modifier.fillMaxWidth().padding(16.dp)
