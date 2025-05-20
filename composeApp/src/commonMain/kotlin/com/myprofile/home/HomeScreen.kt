@@ -6,16 +6,17 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.Button
-import androidx.compose.material.Card
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material3.Button
+import androidx.compose.material3.Card
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
 import com.myprofile.certification.CertificationScreen
+import com.myprofile.skill.SkillScreen
 
 object HomeScreen : Screen {
     @Composable
@@ -139,6 +140,13 @@ object HomeScreen : Screen {
                             "Compose Multiplatform (CMP)",
                             modifier = Modifier.fillMaxWidth().padding(16.dp)
                         )
+
+                        Button(
+                            onClick = { navigator?.push(SkillScreen) },
+                            modifier = Modifier.fillMaxWidth().padding(16.dp)
+                        ) {
+                            Text("View all")
+                        }
                     }
                 }
             }
