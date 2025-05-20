@@ -25,6 +25,7 @@ import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.outlined.ArrowBack
 import androidx.compose.material.icons.filled.Check
+import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -33,8 +34,12 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.runtime.toMutableStateList
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
@@ -94,6 +99,8 @@ fun SkillListContent() {
 
     val lazyListState = rememberLazyListState()
 
+    var inputSkill by remember { mutableStateOf("") }
+
     Scaffold { padding ->
         Box(
             modifier = Modifier.padding(
@@ -125,15 +132,40 @@ fun SkillListContent() {
                                 skills.addAll(allSkills)
                             }
                         ) {
-                            Text("ADD SKILLS")
+                            Text("RESET")
                         }
                     }
                 }
+
                 items(skills, key = { it }) { skill ->
                     SkillRow(
                         skill = skill,
                         onRemove = { skills.remove(skill) }
                     )
+                }
+
+                item { Spacer(modifier = Modifier.height(16.dp)) }
+
+                item {
+                    Row {
+                        TextField(
+                            value = inputSkill,
+                            onValueChange = { inputSkill = it },
+                            modifier = Modifier
+                                .padding(end = 8.dp)
+                                .weight(1f),
+                            label = { Text("Add Skill") }
+                        )
+
+                        Button(
+                            onClick = {
+                                skills.add(inputSkill)
+                                inputSkill = ""
+                            }
+                        ) {
+                            Text("ADD")
+                        }
+                    }
                 }
             }
         }
