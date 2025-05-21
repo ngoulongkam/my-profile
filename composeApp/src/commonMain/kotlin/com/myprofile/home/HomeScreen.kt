@@ -1,22 +1,37 @@
 package com.myprofile.home
 
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.painter.ColorPainter
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
 import com.myprofile.certification.CertificationScreen
 import com.myprofile.skill.SkillScreen
+import org.jetbrains.compose.resources.InternalResourceApi
 
 object HomeScreen : Screen {
     @Composable
@@ -27,22 +42,9 @@ object HomeScreen : Screen {
             Column(
                 Modifier
                     .fillMaxWidth()
-                    .padding(vertical = 32.dp)
                     .verticalScroll(rememberScrollState())
             ) {
-                Card {
-                    Column {
-                        Text(
-                            "Ngou Long Kam",
-                            modifier = Modifier.fillMaxWidth().padding(16.dp)
-                        )
-
-                        Text(
-                            "Android Developer / Technical Test Engineer (Automation) at Capgemini",
-                            modifier = Modifier.fillMaxWidth().padding(16.dp)
-                        )
-                    }
-                }
+                HalfColorBoxWithImage()
 
                 FourDpSpacer()
 
@@ -150,6 +152,62 @@ object HomeScreen : Screen {
                     }
                 }
             }
+        }
+    }
+}
+
+@OptIn(InternalResourceApi::class)
+@Composable
+fun HalfColorBoxWithImage(modifier: Modifier = Modifier) {
+    Box(
+        modifier = modifier
+            .fillMaxWidth()
+            .height(300.dp)
+    ) {
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .fillMaxHeight(0.5f)
+                .background(Color.LightGray)
+                .align(Alignment.TopCenter)
+        )
+
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .fillMaxHeight(0.5f)
+                .background(Color.White)
+                .align(Alignment.BottomCenter)
+        )
+
+        Box(
+            modifier = Modifier
+                .size(250.dp)
+                .clip(CircleShape)
+                .border(4.dp, Color.White, CircleShape)
+                .background(Color.Gray)
+                .align(Alignment.Center)
+        ) {
+            Image(
+                painter = ColorPainter(Color.Green),
+                contentDescription = "Image",
+                modifier = Modifier.fillMaxSize(),
+                contentScale = ContentScale.Crop
+            )
+        }
+    }
+
+    Card {
+        Column(modifier = Modifier.background(Color.White)) {
+            Text(
+                "Ngou Long Kam",
+                modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp)
+            )
+
+            Text(
+                "Android Developer / Technical Test Engineer (Automation) at Capgemini",
+                modifier = Modifier.fillMaxWidth().padding(16.dp)
+            )
         }
     }
 }
