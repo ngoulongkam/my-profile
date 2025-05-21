@@ -13,7 +13,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
@@ -26,7 +26,10 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.ColorPainter
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
 import com.myprofile.certification.CertificationScreen
@@ -180,12 +183,13 @@ fun HalfColorBoxWithImage(modifier: Modifier = Modifier) {
                 .align(Alignment.BottomCenter)
         )
 
+        val roundShape = RoundedCornerShape(40)
+
         Box(
             modifier = Modifier
                 .size(250.dp)
-                .clip(CircleShape)
-                .border(4.dp, Color.White, CircleShape)
-                .background(Color.Gray)
+                .clip(roundShape)
+                .border(4.dp, Color.White, roundShape)
                 .align(Alignment.Center)
         ) {
             Image(
@@ -201,12 +205,20 @@ fun HalfColorBoxWithImage(modifier: Modifier = Modifier) {
         Column(modifier = Modifier.background(Color.White)) {
             Text(
                 "Ngou Long Kam",
-                modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp)
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp),
+                fontSize = 25.sp,
+                fontWeight = FontWeight.Bold,
+                textAlign = TextAlign.Center
             )
 
             Text(
                 "Android Developer / Technical Test Engineer (Automation) at Capgemini",
-                modifier = Modifier.fillMaxWidth().padding(16.dp)
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp),
+                textAlign = TextAlign.Center
             )
         }
     }
