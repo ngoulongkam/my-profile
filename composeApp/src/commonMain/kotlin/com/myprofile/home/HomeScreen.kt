@@ -34,6 +34,7 @@ import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
 import com.myprofile.certification.CertificationScreen
 import com.myprofile.skill.SkillScreen
+import com.myprofile.util.painterResource
 import org.jetbrains.compose.resources.InternalResourceApi
 
 object HomeScreen : Screen {
@@ -193,7 +194,7 @@ fun HalfColorBoxWithImage(modifier: Modifier = Modifier) {
                 .align(Alignment.Center)
         ) {
             Image(
-                painter = ColorPainter(Color.Green),
+                painter = painterResource(),
                 contentDescription = "Image",
                 modifier = Modifier.fillMaxSize(),
                 contentScale = ContentScale.Crop
