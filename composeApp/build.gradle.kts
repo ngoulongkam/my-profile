@@ -88,9 +88,13 @@ kotlin {
             }
         }
 
-        val iosX64Main by getting { dependsOn(mobileMain) }
-        val iosArm64Main by getting { dependsOn(mobileMain) }
-        val iosSimulatorArm64Main by getting { dependsOn(mobileMain) }
+        val iosMain by creating {
+            dependsOn(mobileMain)
+        }
+
+        val iosX64Main by getting { dependsOn(iosMain) }
+        val iosArm64Main by getting { dependsOn(iosMain) }
+        val iosSimulatorArm64Main by getting { dependsOn(iosMain) }
 
         val desktopMain by getting {
             dependsOn(nonMobileMain)
