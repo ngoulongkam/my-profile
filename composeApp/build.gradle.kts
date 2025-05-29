@@ -76,9 +76,6 @@ kotlin {
 
         val nonMobileMain by creating {
             dependsOn(commonMain)
-            dependencies {
-                // TODO: find a lib to do image loading for non mobile source set
-            }
         }
 
         val androidMain by getting {
