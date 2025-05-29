@@ -70,13 +70,14 @@ kotlin {
         val mobileMain by creating {
             dependsOn(commonMain)
             dependencies {
-                implementation(libs.moko)
+                implementation(libs.coil)
             }
         }
+
         val nonMobileMain by creating {
             dependsOn(commonMain)
             dependencies {
-                implementation(libs.kamel)
+                // TODO: find a lib to do image loading for non mobile source set
             }
         }
 
