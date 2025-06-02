@@ -9,6 +9,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
+    alias(libs.plugins.kotlinSerialization)
 }
 
 kotlin {
@@ -67,6 +68,8 @@ kotlin {
                 implementation(libs.voyager)
                 implementation(libs.koin.core)
                 implementation(libs.koin.compose)
+                implementation(libs.koin.compose.viewmodel)
+                implementation(libs.bundles.ktor.common)
             }
         }
 
@@ -87,11 +90,15 @@ kotlin {
                 implementation(compose.preview)
                 implementation(libs.androidx.activity.compose)
                 implementation(libs.koin.android)
+                implementation(libs.ktor.client.android)
             }
         }
 
         val iosMain by creating {
             dependsOn(mobileMain)
+            dependencies {
+                implementation(libs.ktor.client.darwin)
+            }
         }
 
         val iosX64Main by getting { dependsOn(iosMain) }
@@ -103,6 +110,7 @@ kotlin {
             dependencies {
                 implementation(compose.desktop.currentOs)
                 implementation(libs.kotlinx.coroutines.swing)
+                implementation(libs.ktor.client.java)
             }
         }
 
