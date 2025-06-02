@@ -18,6 +18,8 @@ voyager = "1.1.0-beta03"
 kotlinx-coroutines = "1.10.2"
 coil = "3.2.0"
 materialIcons = "1.7.3"
+koin = "4.0.4"
+koin-compose-multiplatform = "4.0.4"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -36,6 +38,10 @@ material-icons-core = { module = "org.jetbrains.compose.material:material-icons-
 kotlinx-coroutines-swing = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-swing", version.ref = "kotlinx-coroutines" }
 voyager = { group = "cafe.adriel.voyager", name = "voyager-navigator", version.ref = "voyager" }
 coil = { group = "io.coil-kt.coil3", name = "coil-compose", version.ref = "coil" }
+
+koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
+koin-compose = { module = "io.insert-koin:koin-compose", version.ref = "koin-compose-multiplatform" }
+koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

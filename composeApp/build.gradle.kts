@@ -65,6 +65,8 @@ kotlin {
                 implementation(libs.androidx.lifecycle.viewmodel)
                 implementation(libs.androidx.lifecycle.runtime.compose)
                 implementation(libs.voyager)
+                implementation(libs.koin.core)
+                implementation(libs.koin.compose)
             }
         }
 
@@ -84,6 +86,7 @@ kotlin {
             dependencies {
                 implementation(compose.preview)
                 implementation(libs.androidx.activity.compose)
+                implementation(libs.koin.android)
             }
         }
 
