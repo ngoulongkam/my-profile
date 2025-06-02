@@ -1,4 +1,4 @@
-package com.myprofile.certification
+package com.myprofile.screen.certification
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -18,14 +18,20 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
 import cafe.adriel.voyager.navigator.currentOrThrow
+import org.koin.compose.viewmodel.koinViewModel
+import androidx.compose.runtime.getValue
 
 object CertificationScreen : Screen {
     @Composable
     override fun Content() {
         val navigator = LocalNavigator.currentOrThrow
+        val viewModel: CertificationViewModel = koinViewModel<CertificationViewModel>()
+        val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+
         MaterialTheme {
             Column(
                 Modifier
@@ -48,6 +54,13 @@ object CertificationScreen : Screen {
                             "This is the licenses & certifications screen",
                             modifier = Modifier.fillMaxWidth().padding(16.dp)
                         )
+
+                        if (uiState is CertificationUiState.Success) {
+                            Text(
+                                (uiState as CertificationUiState.Success).catFact,
+                                modifier = Modifier.fillMaxWidth().padding(16.dp)
+                            )
+                        }
                     }
                 }
             }
