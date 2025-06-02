@@ -1,4 +1,4 @@
-package com.myprofile.certification
+package com.myprofile.screen.certification
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column

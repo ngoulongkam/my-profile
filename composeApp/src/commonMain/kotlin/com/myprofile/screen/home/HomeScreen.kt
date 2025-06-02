@@ -1,4 +1,4 @@
-package com.myprofile.home
+package com.myprofile.screen.home
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -28,8 +28,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.navigator.LocalNavigator
-import com.myprofile.certification.CertificationScreen
-import com.myprofile.skill.SkillScreen
+import com.myprofile.screen.certification.CertificationScreen
+import com.myprofile.screen.skill.SkillScreen
 import org.jetbrains.compose.resources.InternalResourceApi
 
 object HomeScreen : Screen {
