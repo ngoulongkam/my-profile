@@ -120,7 +120,7 @@ object HomeScreen : Screen {
                         )
 
                         Button(
-                            onClick = { navigator?.push(CertificationScreen) },
+                            onClick = { navigator?.push(CertificationScreen("text passed from home screen")) },
                             modifier = Modifier.fillMaxWidth().padding(16.dp)
                         ) {
                             Text("View all")
