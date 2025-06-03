@@ -25,7 +25,7 @@ import cafe.adriel.voyager.navigator.currentOrThrow
 import org.koin.compose.viewmodel.koinViewModel
 import androidx.compose.runtime.getValue
 
-object CertificationScreen : Screen {
+data class CertificationScreen(val arg: String) : Screen {
     @Composable
     override fun Content() {
         val navigator = LocalNavigator.currentOrThrow
@@ -52,6 +52,11 @@ object CertificationScreen : Screen {
 
                         Text(
                             "This is the licenses & certifications screen",
+                            modifier = Modifier.fillMaxWidth().padding(16.dp)
+                        )
+
+                        Text(
+                            arg,
                             modifier = Modifier.fillMaxWidth().padding(16.dp)
                         )
 
